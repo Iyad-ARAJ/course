@@ -17,7 +17,7 @@ def add_course(request):
         create_course(request.POST)              # To create new course
         return redirect('/')
 
-def remove_course(request, id):
+def remove_course(request, id):  #dnaskljdn daskdnas
     if request.method == 'POST':
         removecourse(id)
         return redirect('/')  
