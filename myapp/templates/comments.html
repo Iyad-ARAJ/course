@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>{{ course.id }} - {{course.name}}</h1>
+
+        <form action="{% url 'comment' course.id %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="comment" placeholder="Enter your comment">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <ul class="list-group">
+            {% for comment in allcomments %} <!--to view all comments-->
+            <li class="list-group-item list-group-item-action list-group-item-secondary">{{ comment.content }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="/" class="btn btn-dark">Back to COURSES</a>
+
+    </div>
+
+
+</body>
+</html>
